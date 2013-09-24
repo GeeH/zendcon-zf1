@@ -1,0 +1,30 @@
+<?php
+/* @var Zend_View $this */
+/* @var Application_Model_Comment[] $comments */
+$comments = $this->comments;
+?>
+
+<?php foreach ($comments as $comment): ?>
+    <div class="comment">
+        <div class="span2"><?php echo $this->gravatar($comment->getEmail())->setAttribs(
+                array('class' => 'img-polaroid')
+            ); ?></div>
+        <div class="span8">
+            <h3>Added by <a href="mailto:<?php echo $this->escape($comment->getEmail()); ?>"><?php echo $this->escape(
+                        $comment->getName()
+                    ); ?></a>
+                <?php echo $this->DayDifference(new Zend_Date($comment->getCreated())); ?></h3>
+
+            <p><?php echo $this->escape($comment->getComment()); ?></p>
+        </div>
+    </div>
+    <hr/>
+<?php endforeach; ?>
+
+<h3>Add a Comment</h3>
+<div class="make-comment">
+    <?php
+    $this->form->setAction($this->url());
+    echo $this->form;
+    ?>
+</div>
