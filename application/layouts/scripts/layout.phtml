@@ -1,3 +1,4 @@
+<?php /* @var Zend_View $this */ ?>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -6,8 +7,10 @@
     <title>Commentizr - Zendcon 2013</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <?php echo $this->headLink()
+            ->appendStylesheet("/css/bootstrap.min.css")
+            ->appendStylesheet("/css/main.css");
+    ?>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +33,5 @@
     </footer>
 </div>
 <!-- /container -->
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>

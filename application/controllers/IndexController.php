@@ -26,7 +26,7 @@ class IndexController extends Zend_Controller_Action
                 $comment->setEmail($values['email']);
                 $comment->setComment($values['comment']);
                 $this->commentService->save($comment);
-                return $this->_helper->redirector('index');
+                return $this->redirect('/?referer=' . Zend_Registry::get('Referer'));
             }
         }
         $this->view->form = $form;

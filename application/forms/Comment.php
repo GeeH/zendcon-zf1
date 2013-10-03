@@ -69,6 +69,13 @@ class Application_Form_Comment extends Zend_Form
             )
         );
         $this->addElement(
+            'hidden',
+            'referer',
+            array(
+                'value' => Zend_Registry::get('Referer')
+            )
+        );
+        $this->addElement(
             'submit',
             'submit',
             array(
